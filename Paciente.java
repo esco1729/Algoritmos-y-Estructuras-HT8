@@ -3,7 +3,7 @@
  * @author liter
  *
  */
-public class Paciente {
+public abstract class Paciente implements Comparable{
 	private String nombre;
 	private String sintoma;
 	private String codigo;
@@ -51,5 +51,20 @@ public class Paciente {
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
+	
+	public int compareTo(String codigo1, String codigo2) {
+		int compare = codigo1.compareTo(codigo2);
+		if (compare < 0) {
+			return -1;
+		}
+		else if (compare >0) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+
+
 
 }
