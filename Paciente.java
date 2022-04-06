@@ -6,7 +6,7 @@
 public abstract class Paciente implements Comparable{
 	private String nombre;
 	private String sintoma;
-	private String codigo;
+	private String codigo;//codigo de emergencia del paciente
 	
 	
 	public Paciente(String nombre, String sintoma, String codigo) {
@@ -40,20 +40,21 @@ public abstract class Paciente implements Comparable{
 		this.sintoma = sintoma;
 	}
 	/**
-	 * @return the paciente
+	 * @return the codigo
 	 */
 	public String getCodigo() {
 		return codigo;
 	}
 	/**
-	 * @param paciente the paciente to set
+	 * @param codigo the codigo to set
 	 */
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	
-	public int compareTo(String codigo1, String codigo2) {
-		int compare = codigo1.compareTo(codigo2);
+	public int compareTo(Paciente paciente1, Paciente paciente2) {
+		@SuppressWarnings("unchecked")
+		int compare = paciente1.compareTo(paciente2);
 		if (compare < 0) {
 			return -1;
 		}
