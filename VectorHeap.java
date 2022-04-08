@@ -7,7 +7,6 @@ import java.util.Vector;
  */
 public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 	protected Vector<E> data;
-	
 	public VectorHeap() {
 		data = new Vector<E>();
 	}

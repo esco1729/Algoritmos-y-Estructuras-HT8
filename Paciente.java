@@ -3,12 +3,17 @@
  * @author liter
  *
  */
-public abstract class Paciente implements Comparable{
+public class Paciente implements Comparable<Paciente>{
 	private String nombre;
 	private String sintoma;
 	private String codigo;//codigo de emergencia del paciente
 	
-	
+	/**
+	 * Constructor
+	 * @param nombre
+	 * @param sintoma
+	 * @param codigo
+	 */
 	public Paciente(String nombre, String sintoma, String codigo) {
 		this.nombre = nombre;
 		this.sintoma = sintoma;
@@ -51,9 +56,13 @@ public abstract class Paciente implements Comparable{
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-	
+	/**
+	 * 
+	 * @param paciente1
+	 * @param paciente2
+	 * @return
+	 */
 	public int compareTo(Paciente paciente1, Paciente paciente2) {
-		@SuppressWarnings("unchecked")
 		int compare = paciente1.compareTo(paciente2);
 		if (compare < 0) {
 			return -1;
@@ -65,7 +74,20 @@ public abstract class Paciente implements Comparable{
 			return 0;
 		}
 	}
+	/**
+	 * 
+	 */
+	public String toString() {
+		return "Nombre: " + nombre + 
+				"\nSíntomas: " + sintoma + 
+				"\nCódigo: " + codigo;
+	}
 
+	@Override
+	public int compareTo(Paciente o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 
 }
