@@ -5,8 +5,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Vista {
+		public String path() {
+			Scanner scn = new Scanner(System.in);
+			System.out.println("\nLocation (ubicación del archivo): ");
+			return scn.nextLine();
+		}
+	
 	  public ArrayList<String> data() throws FileNotFoundException{
-		  Scanner s = new Scanner(new File("C:\\Users\\liter\\OneDrive\\Escritorio\\Universidad\\Semestre V\\Algoritmos y Estructuras de Datos\\Laboratorio 8\\Algoritmos-y-Estructuras-HT8\\pacientes"));
+		  String myPath = path();
+		  Scanner s = new Scanner(new File(myPath));
 		  ArrayList<String> list = new ArrayList<String>();
 		  while (s.hasNext()) {
 			  list.add(s.next());
@@ -18,4 +25,13 @@ public class Vista {
 	return list;
 	  }
 	  
+	  public PriorityQueue makePriority() {
+		  return null;
+		  
+	  }
+	  
+	  public VectorHeap makeVector() {
+		return null;
+		  
+	  }
 }
