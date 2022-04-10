@@ -43,13 +43,30 @@ public class Main {
 				            System.out.println(hospital1.poll().pacienteInfo());
 				            System.out.println("Siguiente paciente (presione enter)");
 				            String x = scn.nextLine();
+				            
 				        }
 					
 				
 				}
 				else if (opc == 2) {
-				System.out.println("2");	
-				}
+			        for (String s : vis.data(path)) {
+			            s.replaceAll("\\s+", "");
+			            String[] listaPacientes = s.split(",");
+			            Paciente paciente = new Paciente(listaPacientes[0], listaPacientes[1], listaPacientes[2]);
+			            hospital.add(paciente);
+			        }
+			        
+			        while (!hospital.isEmpty()){
+			            System.out.println(hospital.getFirst().pacienteInfo());
+			            hospital.remove();
+			            System.out.println("Siguiente paciente (presione enter)");
+			            String x = scn.nextLine();
+			         
+			        }
+				
+			
+			}
+				
 				
 				else {
 					break;

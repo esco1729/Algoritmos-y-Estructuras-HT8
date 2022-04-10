@@ -11,6 +11,10 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 		data = new Vector<E>();
 	}
 	
+	/**
+	 * Método de construcción de un nuevo priority en un vector
+	 * @param v
+	 */
 	public VectorHeap(Vector<E> v) {
 		int i;
 		data = new Vector<E>(v.size());
@@ -18,7 +22,10 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 			add(v.get(i));
 		}
 	}
-
+	/**
+	 * Método para mover el nodo hacia una posición determinada 
+	 * @param leaf
+	 */
 	private void percolateUp(int leaf) {
 		int parent = parent(leaf);
 		E value = data.get(leaf);
@@ -30,11 +37,11 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 		}
 		data.set(leaf, value);
 	}
-
+	/**
+	 * Mueve el nodo hacia abajo en el subtree
+	 * @param root
+	 */
 	protected void pushDownRoot(int root) {
-		//pre: 0 <= root < size
-		//post: moves node at index root down
-		// to appropriate position in subtree
 		{
 			int heapSize = data.size();
 			E value = data.get(root);
@@ -66,16 +73,29 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 		
 		
 	}
-	
+	/**
+	 * Regresa al padre de un node en una ubicación i
+	 * @param i
+	 * @return
+	 */
 	protected static int parent(int i) {
 		return (i-1)/2;
 	}
 	
+	/**
+	 * Regresa el índice del hijo izquierdo del nodo en la localización i
+	 * @param i
+	 * @return
+	 */
 	//índice desde 0
 	protected static int left(int i) {
 		return 2*i+1;
 	}
-	
+	/**
+	 * Regresa el índice del hijo derecho del nodo en la localización i
+	 * @param i
+	 * @return
+	 */
 	//índice desde 0
 	protected static int right(int i) {
 		return 2*(i+1);
@@ -86,7 +106,9 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 		return data.firstElement();
 				
 	}
-
+	/**
+	 * Regresa y retira el mínimo valor del queue 
+	 */
 	@Override
 	public E remove() {
 		E minVal = getFirst();
@@ -96,23 +118,31 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 		return minVal;
 	}
 
-
+	/**
+	 * Añade un valor al queue
+	 */
 	public void add(E value) {
 		data.add(value);
 		percolateUp(data.size()-1);
 	}
 	
-	
+	/**
+	 * Regresa el mínimo valor en el priority queue
+	 */
 	@Override
 	public boolean isEmpty() {
 		return data.isEmpty();
 	}
-
+	/**
+	 * Regresa el número de elementos
+	 */
 	@Override
 	public int size() {
 		return data.size();
 	}
-
+	/**
+	 * Elimina los elementos del queue
+	 */
 	@Override
 	public void clear() {
 		data.clear();
