@@ -62,32 +62,17 @@ public class Paciente implements Comparable<Paciente>{
 	 * @param paciente2
 	 * @return
 	 */
-	public int compareTo(Paciente paciente1, Paciente paciente2) {
-		int compare = paciente1.compareTo(paciente2);
-		if (compare < 0) {
-			return -1;
-		}
-		else if (compare >0) {
-			return 1;
-		}
-		else {
-			return 0;
-		}
+	public int compareTo(Paciente paciente) {
+		return this.codigo.compareTo(paciente.getCodigo());
 	}
 	/**
-	 * 
+	 * Obtiene la ficha del paciente
 	 */
-	public String toString() {
-		return "Nombre: " + nombre + 
-				"\nSíntomas: " + sintoma + 
-				"\nCódigo: " + codigo;
-	}
+	public String pacienteInfo() {
+        return "-------------------" + 
+        		"\nNombre: " + nombre + "\nSíntoma: " + sintoma + "\nCodigo: " + codigo + 
+        		"\n------------------";
 
-	@Override
-	public int compareTo(Paciente o) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
-
 
 }
